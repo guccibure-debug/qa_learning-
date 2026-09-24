@@ -54,8 +54,10 @@ print (multiply(3,3))
 
 def is_even(number):
     if (number%2==0):
-        return ("чётное")
-print (is_even(18))
+         return True
+    else:
+        return False
+print (is_even(19))
 
 def get_max(numbers):
     """Возвращает максимальное число в списке (без max())."""

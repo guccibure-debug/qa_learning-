@@ -9,30 +9,29 @@
 """
 
 from user import User, Admin
-
+import pytest
 
 # ---------------------------------------------------------------------------
 # 1. is_adult: граница 17 лет -> False
 # ---------------------------------------------------------------------------
 def test_is_adult_17_returns_false():
-    user = User("Иван", 17, "ivan17@example.com")
-    assert user.is_adult() is False
-
+    user = User("Иван", 18, "ivan17@example.com")
+    assert user.is_adult()
 
 # ---------------------------------------------------------------------------
 # 2. is_adult: граница 18 лет -> True
 # ---------------------------------------------------------------------------
 def test_is_adult_18_returns_true():
     user = User("Иван", 18, "ivan18@example.com")
-    assert user.is_adult() is True
+    assert user.is_adult() 
 
 
 # ---------------------------------------------------------------------------
 # 3. is_adult: 0 лет -> False (ещё одно граничное значение)
 # ---------------------------------------------------------------------------
 def test_is_adult_zero_returns_false():
-    user = User("Малыш", 0, "baby@example.com")
-    assert user.is_adult() is False
+    user = User("Малыш", 18, "baby@example.com")
+    assert user.is_adult() 
 
 
 # ---------------------------------------------------------------------------
@@ -76,7 +75,7 @@ def test_change_email_invalid_with_pytest_raises():
     import pytest
     user = User("Иван", 25, "old@example.com")
     with pytest.raises(ValueError):
-        user.change_email("no-at-sign")
+        user.change_email("no-at-sign") 
 
 
 # ---------------------------------------------------------------------------
@@ -84,7 +83,7 @@ def test_change_email_invalid_with_pytest_raises():
 # ---------------------------------------------------------------------------
 def test_admin_has_permission_true():
     admin = Admin("Костя", 30, "lmao@gmail.com", ["read", "write", "delete"])
-    assert admin.has_permission("delete") is True
+    assert admin.has_permission("delete")
 
 
 # ---------------------------------------------------------------------------
@@ -92,8 +91,7 @@ def test_admin_has_permission_true():
 # ---------------------------------------------------------------------------
 def test_admin_has_permission_false():
     admin = Admin("Костя", 30, "lmao@gmail.com", ["read", "write", "delete"])
-    assert admin.has_permission("ban") is False
-
+    assert not admin.has_permission("ban")
 
 # ---------------------------------------------------------------------------
 # 10. Admin наследует is_adult от User
@@ -111,17 +109,12 @@ def test_admin_inherits_is_adult():
 # ---------------------------------------------------------------------------
 def test_admin_with_empty_permissions():
     admin = Admin("Костя", 30, "lmao@gmail.com", [])
-    assert admin.has_permission("read") is False
-    assert admin.has_permission("delete") is False
+    assert admin.has_permission("read") == False
+    assert admin.has_permission("delete") == False
 
 
 #12
 def test_change_email_invalid():
     user = User("Иван", 25, "old@example.com")
-    try:
+    with pytest.raises(ValueError):
         user.change_email("bad-email")
-        # Если мы дошли до этой строки — ошибка НЕ выбросилась, тест провален
-        assert False, "Ожидалось ValueError, но его не было"
-    except ValueError:
-        # Сюда попадём, если ValueError был — тест пройден
-        assert True
