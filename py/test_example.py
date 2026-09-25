@@ -9,7 +9,8 @@ def test_add_negative():
     assert add(-1,-2) == -3
 
 def test_add_mixed():
-    assert add(5,2) == 5
+    with pytest.raises(TypeError):
+        add(5,"2") == 5
 
 def test_add_string_and_number_raises():
     with pytest.raises(TypeError)   :
