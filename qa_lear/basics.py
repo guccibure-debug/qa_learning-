@@ -52,12 +52,11 @@ def multiply(a, b):
     return a*b
 print (multiply(3,3))
 
-def is_even(number):
-    if (number%2==0):
-         return True
-    else:
-        return False
-print (is_even(19))
+def is_even(n):
+    if n <= 0:
+        raise ValueError("Число должно быть положительным")
+    return n % 2 == 0
+print (is_even(191))
 
 def get_max(numbers):
     """Возвращает максимальное число в списке (без max())."""

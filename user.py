@@ -5,11 +5,8 @@ class User:
         self.mail = mail
 
     def is_adult(self):
-        if self.age >= 18:
-            return True
-        else:
-            return False
-
+        return self.age >= 18
+    
     def greet(self):
         return (f"Привет, меня зовут {self.name}")
         

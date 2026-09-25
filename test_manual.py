@@ -29,13 +29,3 @@ def test_reverse_string_empty():
 def test_reverse_string_single():
     assert reverse_string("a") == "a"
 
-if __name__ == "__main__":
-    test_is_even_true()
-    test_is_even_false()
-    test_get_max_normal()
-    test_get_max_single()
-    test_get_max_empty()
-    test_reverse_string_regular()
-    test_reverse_string_empty()
-    test_reverse_string_single()
-    print("Все тесты прошли!")

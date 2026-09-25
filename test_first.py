@@ -7,6 +7,7 @@ def test_addition():
 def test_substraction():
     assert 5-2==3
 
+@pytest.mark.xfail(reason="демонстрация падения")
 def test_will_fail():
     assert 5+3==1
 
