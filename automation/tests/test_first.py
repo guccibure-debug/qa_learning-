@@ -1,4 +1,4 @@
-from user import User
+from basics.user import User
 import pytest
 
 def test_addition():
