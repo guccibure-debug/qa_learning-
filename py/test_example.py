@@ -10,7 +10,17 @@ def test_add_negative():
 
 def test_add_mixed():
     with pytest.raises(TypeError):
-        add(5,"2") == 5
+        add(5,"2") 
+
+def test_change_email():
+    user1 = User("Kostya", "prettymf@gmail.com")
+    user1.change_email("kostya@mail.ru")
+    assert user1.email == "kostya@mail.ru"
+
+def test_change_email_error():
+    user1 = User("Kostya", "prettymf@gmail.com")
+    with pytest.raises(ValueError):
+        user1.change_email("kotya")
 
 def test_add_string_and_number_raises():
     with pytest.raises(TypeError)   :
