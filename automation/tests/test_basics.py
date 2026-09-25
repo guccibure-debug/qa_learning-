@@ -1,4 +1,4 @@
-from qa_lear.basics import add, is_adult, multiply, is_even, get_max, count_vowels, reverse_string, reverse_string_1
+from automation.basics.basics import add, is_adult, multiply, is_even, get_max, count_vowels, reverse_string, reverse_string_1
 import pytest
 
 def test_add():
