@@ -14,8 +14,13 @@ class User:
     def greet(self):
         return(f"Привет {self.name}")
 
-    def mail1(self):
+    def mail(self):
         return(self.mail)
+
+    def change_mail(self, new_mail):
+        if "@" not in new_mail:
+            raise ValueError("не тот мэил")
+        self.mail = new_mail
 
     # Создаём объект (экземпляр класса)
 user1 = User("Костя", 21, "kostya@example.com")
@@ -23,7 +28,7 @@ user1 = User("Костя", 21, "kostya@example.com")
 print(user1.name)
 print(user1.is_adult())
 print(user1.greet())
-print(user1.mail1())
+print(user1.mail)
 
 class Admin(User): # Admin наследуется от User. Дочерний класс получает все методы и атрибуты родителя
     def __init__(self, name, age, mail, permissions):
@@ -34,7 +39,7 @@ class Admin(User): # Admin наследуется от User. Дочерний к
         """Только у админа есть этот метод"""
         return f"{user.name} забанен"   
 
-admin = Admin("Пётр", "25", "petr@mail.ru", ["ban", "delete"])
+admin = Admin("Пётр", 25, "petr@mail.ru", ["ban", "delete"])
 print(admin.greet())
 print(admin.ban_user(user1))
 print(user1.age)  

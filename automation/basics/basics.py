@@ -53,8 +53,6 @@ def multiply(a, b):
 print (multiply(3,3))
 
 def is_even(n):
-    if n <= 0:
-        raise ValueError("Число должно быть положительным")
     return n % 2 == 0
 print (is_even(191))
 
@@ -70,7 +68,7 @@ def get_max(numbers):
 print (get_max([3,5,2,2,3,4,5]))
 
 def count_vowels(text):
-    vowels = "aeiou"
+    vowels = "aeiouаоеу"
     count = 0
     for char in text.lower():
         if char in vowels:
