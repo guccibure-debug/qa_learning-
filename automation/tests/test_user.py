@@ -8,7 +8,7 @@
 Если они в другом файле — поправь импорт ниже.
 """
 
-from user import User, Admin
+from basics.user import User, Admin
 import pytest
 
 # ---------------------------------------------------------------------------
