@@ -1,4 +1,4 @@
-from qa_lear.basics import is_even, get_max, reverse_string
+from automation.basics.basics import is_even, get_max, reverse_string
 
 def test_is_even_true():
     """Позитивный тест: чётное число."""
