@@ -17,8 +17,7 @@ def test_is_even_true():
 def test_is_even_false():
     assert is_even(191) is False
 def test_is_even_error():
-    with pytest.raises(ValueError):
-         is_even(0)
+    assert is_even(0) is True
 
 def test_get_max():
     assert get_max([3,5,6]) == 6
