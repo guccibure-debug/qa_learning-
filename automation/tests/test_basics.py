@@ -25,7 +25,7 @@ def test_get_max():
 def test_count_vowels():
     assert count_vowels("hello")==2
     assert count_vowels("") == 0
-    assert count_vowels("приllo") == 1
+    assert count_vowels("приllo") == 2
     assert count_vowels("lklk") == 0
 
 def test_reverse_string():

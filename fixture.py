@@ -1,4 +1,5 @@
 import pytest
+from automation.basics.user import User
 
 @pytest.fixture
 def user():
