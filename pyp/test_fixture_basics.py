@@ -1,6 +1,5 @@
 import pytest
-from pyp.conftest import User
-
+from models.model import User
 
 def test_user_name(user):
     assert user.name == "Anna"
@@ -9,13 +8,13 @@ def test_user_email(user):
     assert user.email == "old@example.com"
 
 def test_user_change_mail(user):
-    user.change_email == ("new@example.com")
+    user.change_email("new@example.com")
     user.email == "new@example.com"
     
 @pytest.fixture
 def user_with_log():
     print ("\n>>> создаём пользователя")
-    user = User("Test", "test@example.com")
+    user = User("Test", 25, "test@example.com")
     yield user
     print (">>> удаляем пользователя")
 
