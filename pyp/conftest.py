@@ -13,3 +13,11 @@ class User:
 def user():
     """готовый пользователь с валидными данными"""
     return User("Anna", "old@example.com")
+
+@pytest.fixture
+def user_factory():
+    """фабрика создаёт пользователя с любыми данными"""
+    def _make(name="test", email="email@email.com"):
+        return User(name, email)
+    return _make
+    

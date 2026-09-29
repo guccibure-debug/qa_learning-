@@ -28,3 +28,10 @@ def test_change_email_invalid(user):        # 👈 фикстура
 def test_user_creation(user):               # 👈 фикстура
     assert user.name == "Anna"
     assert user.email == "old@example.com"
+
+def test_multiple_users(user_factory):
+    u1 = user_factory("Alice", "alice@example.com")
+    u2 = user_factory("Bob", "bob@example.com")
+    assert u1.name == "Alice"
+    assert u2.name == "Bob"
+    assert u1.email != u2.email
