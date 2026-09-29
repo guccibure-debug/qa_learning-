@@ -1,3 +1,5 @@
+import pytest
+
 def add(x, y):
   return x + y
 
@@ -10,3 +12,4 @@ class User:
     if "@" not in new_email:
       raise ValueError("не тот email")
     self.email = new_email
+

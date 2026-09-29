@@ -1,5 +1,5 @@
 import pytest
-from pyp.example import User
+from pyp.conftest import User
 
 
 def test_user_name(user):
