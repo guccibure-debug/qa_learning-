@@ -1,6 +1,7 @@
 import pytest
 from models.model import User
 
+
 def test_user_name(user):
     assert user.name == "Anna"
 
@@ -9,7 +10,7 @@ def test_user_email(user):
 
 def test_user_change_mail(user):
     user.change_email("new@example.com")
-    user.email == "new@example.com"
+    assert user.email == "new@example.com"
     
 @pytest.fixture
 def user_with_log():
