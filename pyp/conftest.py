@@ -6,8 +6,10 @@ class User:
         self.email = email
 
     def change_email(self, new_email):
-        self.email = new_email
-        return self.email
+        if self.email != new_email:
+            raise ValueError("ne to znach")
+        else:
+            return self.email
     
 @pytest.fixture
 def user():

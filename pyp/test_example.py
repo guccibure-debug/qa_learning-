@@ -16,8 +16,9 @@ def test_add_mixed():
 
 
 def test_change_email(user):                # 👈 фикстура из conftest.py
-    user.change_email("new@example.com")
-    assert user.email == "new@example.com"
+    with pytest.raises(ValueError):
+        user.change_email("new@example.com")
+        user.email == "new@example.com"
 
 
 def test_change_email_invalid(user):        # 👈 фикстура

@@ -1,7 +1,10 @@
 import pytest
 
 def add(x, y):
-  return x + y
+  if x+y==False:
+    raise TypeError("некорректно")
+  else:
+    return x + y
 
 class User:
   def __init__(self, name, email):
