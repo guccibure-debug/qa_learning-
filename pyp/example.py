@@ -13,6 +13,6 @@ class User:
 
   def change_email(self, new_email):
     if "@" not in new_email:
-      raise ValueError("не тот email")
+      raise TypeError("не тот email")
     self.email = new_email
 
