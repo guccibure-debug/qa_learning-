@@ -8,6 +8,9 @@ class User:
         self.email = new_email
         return self.email
 
+    def is_adult(self):
+        return self.age >= 18
+
 class Admin(User):
     def __init__(self, name, age, mail, permissions=None):
         super().__init__(name, age, mail)
