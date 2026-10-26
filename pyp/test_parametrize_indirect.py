@@ -1,5 +1,6 @@
 import pytest
 from models.model import User
+from automation.basics.basics import multiply
 
 @pytest.fixture
 def user(request):
@@ -66,4 +67,4 @@ def test_user_adult_status(user):
 @pytest.mark.parametrize("a", [1,2,-3])
 @pytest.mark.parametrize("b", [2,0,5])
 def test_multiply_combinations(a,b):
-    assert a*b==b*a
+    assert multiply(a,b)==b*a
