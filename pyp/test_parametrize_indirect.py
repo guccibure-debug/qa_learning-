@@ -61,3 +61,9 @@ def user_from_param(request):
 def test_user_adult_status(user):
     expected = user.age >= 18
     assert user.is_adult() == expected
+
+
+@pytest.mark.parametrize("a", [1,2,-3])
+@pytest.mark.parametrize("b", [2,0,5])
+def test_multiply_combinations(a,b):
+    assert a*b==b*a
