@@ -43,6 +43,12 @@ def test_user(age, email_valid):
         with pytest.raises(AssertionError):
             assert email_valid and age >= 18
 
+def test_email_valid(email_valid):
+    email = "user@example.com" if email_valid else "user@@bad"
+    assert "@" in email 
+    
+
+
 @pytest.fixture
 def user_from_param(request):
     """фикстура берёт данные из параметра"""
