@@ -37,3 +37,17 @@ def test_delete_post(api_client):
 def test_get_nonexistent_post(api_client):
     responce = api_client.get(f"{BASE_URL}/posts/999999")
     assert responce.status_code == 404
+
+@pytest.mark.parametrize(
+    "user_id, expected_name",
+    [
+        (1, "Leanne Graham"),
+        (2, "Ervin Howell"),
+        (3, "Clementine Bauch"),
+    ],
+)
+
+def test_user_names(api_client, user_id, expected_name):
+    responce = api_client.get(f"{BASE_URL}/users/{user_id}")
+    assert responce.status_code == 200
+    assert responce.json()["name"] == expected_name
